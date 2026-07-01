@@ -1,0 +1,220 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@700;900&family=Roboto+Mono:wght@700;900&display=swap');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  font-family: 'Outfit', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background: rgba(0, 0, 0, 0.01) !important;
+  overflow: hidden;
+  user-select: none;
+}
+
+/* Root Transparent Container */
+.overlay-container {
+  display: flex;
+  background: rgba(0, 0, 0, 0.01) !important;
+  width: 100%;
+  height: 100%;
+  cursor: move;
+  font-weight: 900;
+  font-size: 16px;
+  line-height: 1.2;
+}
+
+/* Common Metric Styles */
+.metric {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.label {
+  font-size: 30px;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.65);
+  letter-spacing: 0.5px;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+}
+
+.value, .net-val {
+  font-family: 'Roboto Mono', monospace;
+  font-weight: 900;
+  font-size: 30px;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000, 0 0 1px currentColor;
+}
+
+/* Colors with glows */
+.cpu .value { color: #00f2fe; }
+.ram .value { color: #b176ff; }
+.gpu .value { color: #ff0844; }
+
+#net-down { color: #38ef7d; }
+#net-up { color: #2acfcf; }
+
+.separator {
+  color: rgba(255, 255, 255, 0.15);
+  font-family: 'Roboto Mono', monospace;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+}
+
+/* --- Portrait Mode (세로 모드) --- */
+.portrait {
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding: 26px 15px 10px 15px;
+  gap: 6px;
+}
+
+.portrait .separator {
+  display: none; /* Hide separators in vertical layout */
+}
+
+.portrait .metric {
+  width: 100%;
+  justify-content: space-between;
+}
+
+.portrait .network {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  gap: 2px 8px;
+  width: 100%;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding-top: 5px;
+  margin-top: 2px;
+}
+
+.portrait .network .label {
+  grid-column: 1;
+  grid-row: 1 / span 2;
+  align-self: center;
+}
+
+.portrait .network .net-val {
+  font-size: 30px;
+  grid-column: 2;
+  justify-self: end;
+}
+
+.portrait .network #net-down {
+  grid-row: 1;
+}
+
+.portrait .network #net-up {
+  grid-row: 2;
+}
+
+
+/* --- Landscape Mode (가로 모드) --- */
+.landscape {
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 60px 0 15px;
+  gap: 8px;
+}
+
+.landscape .separator {
+  display: inline;
+}
+
+.landscape .metric {
+  justify-content: center;
+}
+
+.landscape .network {
+  flex-direction: row;
+}
+
+.landscape .network .net-val {
+  font-size: 30px;
+}
+
+/* Close Button Styling */
+.close-btn {
+  position: absolute;
+  background: transparent;
+  border: none;
+  color: rgba(255, 255, 255, 0.35);
+  font-size: 30px;
+  font-weight: 700;
+  cursor: pointer;
+  opacity: 1;
+  transition: opacity 0.2s ease, color 0.2s ease;
+  line-height: 1;
+  padding: 2px;
+  outline: none;
+  z-index: 100;
+}
+
+.overlay-container:hover .close-btn {
+  opacity: 1;
+}
+
+.close-btn:hover {
+  color: #ff0844 !important;
+  text-shadow: 0 0 4px #ff0844;
+}
+
+/* Portrait Positioning */
+.portrait .close-btn {
+  top: 3px;
+  right: 6px;
+}
+
+/* Landscape Positioning */
+.landscape .close-btn {
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+/* Mode Button Styling */
+.mode-btn {
+  position: absolute;
+  background: transparent;
+  border: none;
+  color: rgba(255, 255, 255, 0.35);
+  font-size: 20px;
+  font-weight: 700;
+  cursor: pointer;
+  opacity: 1;
+  transition: opacity 0.2s ease, color 0.2s ease;
+  line-height: 1;
+  padding: 2px;
+  outline: none;
+  z-index: 100;
+}
+
+.overlay-container:hover .mode-btn {
+  opacity: 1;
+}
+
+.mode-btn:hover {
+  color: #ffffff !important;
+  text-shadow: 0 0 4px #ffffff;
+}
+
+/* Portrait Positioning */
+.portrait .mode-btn {
+  top: 3px;
+  right: 38px;
+}
+
+/* Landscape Positioning */
+.landscape .mode-btn {
+  right: 38px;
+  top: 50%;
+  transform: translateY(-50%);
+}

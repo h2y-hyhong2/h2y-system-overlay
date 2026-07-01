@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PC Performance Overlay</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- The container class will be updated dynamically with "portrait" or "landscape" -->
+  <div id="app" class="overlay-container landscape">
+    
+    <!-- CPU -->
+    <div class="metric cpu">
+      <span class="label">CPU</span>
+      <span id="cpu-val" class="value">0%</span>
+    </div>
+
+    <!-- RAM -->
+    <div class="metric ram">
+      <span class="label">RAM</span>
+      <span id="ram-val" class="value">0%</span>
+    </div>
+
+    <!-- Network -->
+    <div class="metric network">
+      <span class="label">NET</span>
+      <span id="net-down" class="net-val">↓0.0K</span>
+      <span id="net-up" class="net-val">↑0.0K</span>
+    </div>
+
+    <!-- Mode Button (visible on hover) -->
+    <button id="mode-btn" class="mode-btn" title="레이아웃 전환">⇄</button>
+    <!-- Close Button (visible on hover) -->
+    <button id="close-btn" class="close-btn" title="종료">×</button>
+  </div>
+
+  <script src="renderer.js"></script>
+</body>
+</html>

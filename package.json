@@ -1,0 +1,33 @@
+{
+  "name": "pc-performance-overlay",
+  "version": "1.0.0",
+  "description": "PC Performance Overlay for Windows",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "dev": "electron .",
+    "build": "electron-builder --win"
+  },
+  "author": "Antigravity",
+  "license": "ISC",
+  "dependencies": {
+    "systeminformation": "^5.21.26"
+  },
+  "devDependencies": {
+    "electron": "^22.3.27",
+    "electron-builder": "^24.13.3"
+  },
+  "build": {
+    "appId": "com.antigravity.overlay",
+    "productName": "PCOverlay",
+    "win": {
+      "target": [
+        "portable"
+      ]
+    },
+    "portable": {
+      "artifactName": "PCOverlay.exe",
+      "requestExecutionLevel": "user"
+    }
+  }
+}
